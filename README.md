@@ -1,6 +1,6 @@
 # UNIBG Beamer Template
 
-A (personal) LaTeX Beamer slide template for the University of Bergamo (UNIBG)
+A LaTeX Beamer slide template for the University of Bergamo (UNIBG)
 
 ## What’s included
 
