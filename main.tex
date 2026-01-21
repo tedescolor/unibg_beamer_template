@@ -1,0 +1,183 @@
+\documentclass[t]{beamer}
+
+% --- Theme and Color Setup ---
+\usetheme{Madrid}
+
+% Define the custom Orange/Blue color (Your MyBlue)
+\definecolor{MyBlue}{RGB}{28, 53, 93} 
+
+% Apply the color to the structure
+\usecolortheme[named=MyBlue]{structure}
+
+% Fix footer colors to match the theme
+\setbeamercolor{palette primary}{bg=MyBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=MyBlue!80!black,fg=white}
+\setbeamercolor{palette tertiary}{bg=MyBlue!60!black,fg=white}
+\setbeamerfont{caption}{size=\footnotesize}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{tikz} 
+\usepackage{booktabs}
+\usepackage{graphicx} 
+
+% --- NATBIB SETUP (As requested) ---
+\usepackage{natbib}
+% You can change the style here if needed (e.g., abbrvnat, unsrtnat)
+\bibliographystyle{apalike} 
+
+% --- 1. CONFIGURATION FOR CONTENT SLIDES (Header Logo) ---
+\addtobeamertemplate{frametitle}{}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east, xshift=-0.3cm, yshift=0cm, inner sep=0pt] at (current page.north east) {
+            \includegraphics[height=0.9cm]{unibg_logo.png} 
+        };
+    \end{tikzpicture}%
+}
+
+% --- 2. CONFIGURATION FOR FIRST & LAST PAGE ---
+\newcommand{\FirstLastPageLayout}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east, xshift=-0.3cm, yshift=0cm, inner sep=0pt] at (current page.north east) {   
+              \includegraphics[height=0.9cm]{unibg_logo.png}
+        };
+        \node[anchor=south west, xshift=0.5cm, yshift=0.5cm] at (current page.south west) {
+            \textcolor{MyBlue}{\footnotesize University of Bergamo, Department of Economics}
+        };
+    \end{tikzpicture}
+}
+
+% --- OPTIONAL: Outline at the beginning of every section ---
+% (Delete these 6 lines if you don't want the recurring outline slides)
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+% --- Info ---
+\title[Short Title]{Title of your presentation} 
+\subtitle{Subtitle of your presentation} 
+\author{Your Name} 
+\institute[UNIBG]{CONFERENCE NAME} 
+\date{\today}
+
+\begin{document}
+
+% --- Slide 1: Title Page ---
+\begin{frame}
+    \FirstLastPageLayout 
+    \titlepage
+\end{frame}
+
+% --- Slide 2: Automatic Contents ---
+\begin{frame}{Contents} 
+    % Automatically generates the list from \section{} commands
+    \tableofcontents 
+\end{frame}
+
+% =========================================
+% SECTION 1
+% =========================================
+\section{Motivation} 
+
+\begin{frame}{Motivation} 
+    \begin{itemize}
+        \item \textbf{XYZ} – your text 
+        \vspace{0.2cm}
+        \item \textbf{XYZ} - your text 
+    \end{itemize}
+\end{frame}
+
+% =========================================
+% SECTION 2
+% =========================================
+\section{Research gap \& Aim}
+
+\begin{frame}{Research gap \& Aim of the paper} 
+    \begin{itemize}
+        \item To insert a table...
+    \end{itemize}
+    \begin{table}[h!]
+        \centering
+        \caption{Summary statistics of XX} \label{HHI_table}
+        \begin{tabular}{lrrr}
+        \hline
+        Country & Mean X & Min X & Max X \\
+        \hline
+        AT & 0.29 & 0.28 & 0.30  \\
+        \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% =========================================
+% SECTION 3
+% =========================================
+\section{Theoretical background}
+
+\begin{frame}{Theoretical background} 
+    \begin{equation}
+        Y = \beta_0 + \beta_1 X + \epsilon
+    \end{equation}
+\end{frame}
+
+% =========================================
+% SECTION 4
+% =========================================
+\section{Methodology}
+
+\begin{frame}{Methodology} 
+    \begin{itemize}
+        \item Your text
+    \end{itemize}
+\end{frame}
+
+% =========================================
+% SECTION 5
+% =========================================
+\section{Results \& Discussion}
+
+\begin{frame}{Results \& Discussion} 
+    \begin{figure}
+        \caption{XYZ}
+        % --- REPLACE 'example-image' WITH YOUR FILE ---
+        \includegraphics[width=6cm]{figures/italian_GDP.png} 
+    \end{figure}
+\end{frame}
+
+% =========================================
+% SECTION 6 - CITATIONS
+% =========================================
+\section{Conclusion}
+
+\begin{frame}{Citations Example} 
+    \begin{itemize}
+        \item Here is a citation example: \cite{Tedesco2023}.
+        \item Make sure "Tedesco2023" is in your .bib file! (I do mean that reference :'D)
+    \end{itemize}
+\end{frame}
+
+% --- References ---
+\begin{frame}[allowframebreaks]{References}
+    \tiny
+    % This tells LaTeX to look for 'references.bib'
+    \bibliography{references}
+\end{frame}
+
+% --- Final page ---
+\begin{frame}[c]
+    \FirstLastPageLayout 
+    \centering
+    \Huge \textcolor{MyBlue}{Thank you for your attention} 
+    
+    \vspace{1.5cm}
+    \normalsize
+    \textbf{Your Name} \\ 
+    \href{mailto:name.surname@unibg.it}{name.surname@unibg.it} 
+\end{frame}
+
+\end{document}
